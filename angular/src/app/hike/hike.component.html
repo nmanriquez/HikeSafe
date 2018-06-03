@@ -1,0 +1,187 @@
+<div class="hike-tabs" class="col-12">
+                        
+  <h2 class="htitle">{{hike?.name}}</h2>
+  <nav>
+      <div class="nav nav-pills nav-justified" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-info-tab" data-toggle="tab" href="#nav-info" role="tab" aria-controls="nav-info" aria-selected="true">Hike Info</a>
+          <a class="nav-item nav-link" id="nav-agencies-tab" data-toggle="tab" href="#nav-agencies" role="tab" aria-controls="nav-agency" aria-selected="false">Agencies Contact</a>
+          <a class="nav-item nav-link" id="nav-gear-tab" data-toggle="tab" href="#nav-gear" role="tab" aria-controls="nav-gear" aria-selected="false">Gear</a>
+          <a class="nav-item nav-link" id="nav-itinerary-tab" data-toggle="tab" href="#nav-itinerary" role="tab" aria-controls="nav-itinerary" aria-selected="false">Itinerary</a>
+     
+      </div>
+  </nav>
+
+  <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane show active" id="nav-info" role="tabpanel" aria-labelledby="nav-info-tab">
+          
+          <div align="center">
+              <h4 class="htitle"><span id="hike-name-info"></span> Information</h4>
+              <p id="description">{{hike?.description}}</p>
+              <img src="img">
+          </div>
+          <h5 class="h5">Details</h5>
+          <div class="row">
+              <label class="col-sm-2">Difficulty</label>
+              <div class="col-sm-10">
+                  <p id="difficulty">{{hike?.difficulty}}</p>
+              </div>
+          </div>
+          <div class="row">
+              <label class="col-sm-2">Elevation</label>
+              <div class="col-sm-10">
+                  <p id="elevation">4200</p>
+              </div>
+          </div>
+          <div class="row">
+              <label class="col-sm-2">Coordinates</label>
+              <div class="col-sm-10">
+                  <p id="hike-coordinates">41 24.2028, 2 10.4418.</p>
+              </div>
+          </div>
+          <div class="row">
+              <label class="col-sm-2">Location</label>
+              <div class="col-sm-10">
+                  <p id="location">{{hike?.location}}</p>
+              </div>
+          </div>
+          <div class="row">
+              <label class="col-sm-2">Closest Town</label>
+              <div class="col-sm-10">
+                  <div class="pb-2">
+                      <iframe width="400" height="250" src="https://maps.google.com/maps?q=seattle&t=&z=7&ie=UTF8&iwloc=&output=embed" frameborder="0"></iframe>
+
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <label class="col-sm-2">Weather</label>
+              <div class="col-5">
+                  <div class="row">
+                      <div class="col">
+                          <img src="img" alt="..." class="weather1">  
+                          <p>day1</p>
+                      </div>
+                      <div class="col">
+                          <img src="img" alt="..." class="weather1"> 
+                          <p>day2</p>
+                      </div>
+                      <div class="col">
+                          <img src="img" alt="..." class="weather1"> 
+                          <p>day3</p>
+                      </div>
+                  </div>  
+              </div>
+          </div>
+      </div>
+      <div class="tab-pane" id="nav-agencies" role="tabpanel" aria-labelledby="nav-agencies-tab">
+              <h4 class="htitle">Agencies Emergency Contact</h4>
+          <table id="agencies-table" class="table table-sm table-striped table-light">
+              <thead>
+                  <tr>
+                  <th scope="col">Agency Name</th>
+                  <th scope="col">Number</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">Web Site</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor ="let result of agency">
+                      <td>{{result.name}}</td>
+                      <td>{{result.number}}</td>
+                      <td>{{result.address}}</td>
+                      <td><a href="http://{{result.website}}">{{result.website}}</a></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+      <div class="tab-pane" id="nav-gear" role="tabpanel" aria-labelledby="nav-gear-tab">
+              <h4 class="htitle">Minimum Gear Recommended</h4>
+          <table class="table table-sm table-striped table-light">
+              <thead>
+                  <tr>
+                      <th scope="col">Supply</th>
+                      <th scope="col">Weight</th>
+                      <th scope="col">Description</th>
+                  </tr>
+              </thead>
+              <tbody id="gear-table">
+                  <tr>
+                      <td>Sunscreen</td>
+                      <td>0.1</td>
+                      <td>Minimum SPF Recomended: 35</td>
+                  </tr>
+                  <tr>
+                      <td>Hiking boots</td>
+                      <td>1</td>
+                      <td>Mid-cut hiking boots for stability</td>
+                  </tr>
+                  <tr>
+                      <td>Flashlight</td>
+                      <td>0.2</td>
+                      <td>...</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+      <div class="tab-pane" id="nav-itinerary" role="tabpanel" aria-labelledby="nav-itinerary-tab" align="center">
+          <h4 class="htitle">Itinerary</h4>
+          
+          <div class="jumbotron col-9">
+              <h5>Activity 1</h5>
+              <div class="row">
+                  <div class="col-7">
+                      <div class="row">
+                          <label class="col-sm-4">Expected time</label>
+                          <div class="col-sm-8">
+                              <p>1 hour</p>
+                          </div>
+                      </div>
+                      <div class="row mt-0">
+                          <label class="col-sm-4">Price</label>
+                          <div class="col-sm-8">
+                              <p>Free</p>
+                          </div>
+                      </div>
+                      <div class="row mt-0">
+                          <label class="col-4">More Info</label>
+                          <div class="col-8">
+                              <p><a href="#">link</a></p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-sm-5">
+                      <img src="img">
+                  </div>
+              </div>
+          </div>
+          <div class="jumbotron col-9">
+              <h5>Activity 2</h5>
+              <div class="row">
+                  <div class="col-7">
+                      <div class="row">
+                          <label class="col-sm-4">Expected time</label>
+                          <div class="col-sm-8">
+                              <p>1 hour</p>
+                          </div>
+                      </div>
+                      <div class="row mt-0">
+                          <label class="col-sm-4">Price</label>
+                          <div class="col-sm-8">
+                              <p>Free</p>
+                          </div>
+                      </div>
+                      <div class="row mt-0">
+                          <label class="col-4">More Info</label>
+                          <div class="col-8">
+                              <p><a href="#">link</a></p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-sm-5">
+                      <img src="img">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div><!--end nav-tab content-->
+</div><!--end hike-tabs-->

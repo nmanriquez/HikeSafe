@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" media="all" href="style.css">
+        <title>HikeSafe</title>
+     
+    </head>
+    <body  class="" onload="selectPage('home')" style="background-color: #f0f3f5">       
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="">HikeSafe</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="" >Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">FAQs</a>
+                        </li>
+                    
+                    </ul>
+                    <div class="col-2 d-glex justify-content-end" align="right">
+                        <a class="nav-link disabled" href="#">Log In</a>
+                    </div>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Select Hike">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+        </header>
+
+        <!--grid-->
+        <div  class="container" >
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-11" id="container">
+                    <!--search-->
+                    <div class="container home mt-4 col-10" align="center">
+                        <h1 class="h1">HikeSafe</h1>
+                        <h3 class="h3">Choose your Destination</h3>
+                        <div class="input-group col-sm-9" align="center">
+                            <input id="name" type="text" class="form-control" placeholder="Hike destination name">
+                            <div class="input-group-append">
+                                <input class="btn btn-outline-secondary" type="button" value="Search" onclick="javascript:showForm('form1')">
+                            </div>
+                        </div>
+                        <!-- 16:9 aspect ratio -->
+                        <div class="" align="center">
+                                <iframe width="550" height="400" frameborder="0" style="border:0" class="mt-2"
+                                src="https://maps.google.com/maps?q=hikes in WA&t=&z=7&ie=UTF8&iwloc=&output=embed"
+                                allowfullscreen></iframe>                     
+
+                        </div>
+                    </div>
+                    <div class="form1" style="display:none">
+                        <div>
+                            <h2 class="htitle" id="name-form">Hike Name</h2>
+                            <p align="center">Please complete the form</p>
+                        </div>
+                        <form>
+                                <div class="form-group row">
+                                <label for="date" class="col-sm-3 col-form-label">Date of Trip*</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" id="date"  placeholder="MM/DD/YYYY">
+                                </div>
+                                </div>
+                                <div class="form-group row" >
+                                    <label for="return" class="col-sm-3 col-form-label">Expected Return*</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" id="return" placeholder="MM/DD/YYYY">
+                                </div>
+                                </div>
+                                <div class="form-group row">
+                                        <label for="hiker-name" class="col-sm-3 col-form-label">Name*</label>
+                                <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="hiker-name">
+                                </div>
+                                </div>
+                                <div class="form-group row">
+                                        <label for="hiker-phone" class="col-sm-3 col-form-label">Phone</label>
+                                <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="hiker-phone">
+                                </div>
+                                </div>
+                                <div class="form-group row">
+                                        <label for="eme-name" class="col-sm-3 col-form-label">Emergency Contact Name*</label>
+                                <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="eme-name">
+                                </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="eme-phone" class="col-sm-3 col-form-label">Emergency Contact Phone</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="eme-phone">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="todo" class="col-sm-3 col-form-label">What to do</label>
+                                    <div class="col-sm-8">
+                                        <textarea class="form-control" id="todo" rows="3"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                <div align="right" class="col-sm-11">
+                            
+                                    <input type="button" class="btn btn-primary" onclick="javascript:populateHikeData('hike-tabs')" value="Submit">
+                                    <button type="" class="btn btn-primary">Download emergency sheet</button>
+                                </div>
+                                </div>
+                            </form>
+                    </div>    
+                    <div class="hike-tabs" style="display:none"  class="col-12">
+                        
+                        <h2 class="htitle" id="hike-name">Hike Name</h2>
+                        <nav>
+                            <div class="nav nav-pills nav-justified" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-info-tab" data-toggle="tab" href="#nav-info" role="tab" aria-controls="nav-info" aria-selected="true">Hike Info</a>
+                                <a class="nav-item nav-link" id="nav-agencies-tab" data-toggle="tab" href="#nav-agencies" role="tab" aria-controls="nav-agency" aria-selected="false">Agencies Contact</a>
+                                <a class="nav-item nav-link" id="nav-gear-tab" data-toggle="tab" href="#nav-gear" role="tab" aria-controls="nav-gear" aria-selected="false">Gear</a>
+                                <a class="nav-item nav-link" id="nav-itinerary-tab" data-toggle="tab" href="#nav-itinerary" role="tab" aria-controls="nav-itinerary" aria-selected="false">Itinerary</a>
+                           
+                            </div>
+                        </nav>
+
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane show active" id="nav-info" role="tabpanel" aria-labelledby="nav-info-tab">
+                                
+                                <div align="center">
+                                    <h4 class="htitle"><span id="hike-name-info"></span> Information</h4>
+                                    <p id="description"></p>
+                                    <img src="...">
+                                </div>
+                                <h5 class="h5">Details</h5>
+                                <div class="row">
+                                    <label class="col-sm-2">Difficulty</label>
+                                    <div class="col-sm-10">
+                                        <p id="difficulty"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-2">Elevation</label>
+                                    <div class="col-sm-10">
+                                        <p id="elevation">4200</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-2">Coordinates</label>
+                                    <div class="col-sm-10">
+                                        <p id="hike-coordinates">41 24.2028, 2 10.4418.</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-2">Location</label>
+                                    <div class="col-sm-10">
+                                        <p id="location"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-2">Closest Town</label>
+                                    <div class="col-sm-10">
+                                        <div class="pb-2">
+                                            <iframe width="400" height="250" src="https://maps.google.com/maps?q=seattle&t=&z=7&ie=UTF8&iwloc=&output=embed" frameborder="0"></iframe>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-2">Weather</label>
+                                    <div class="col-5">
+                                        <div class="row">
+                                            <div class="col">
+                                                <img src="..." alt="..." class="weather1">  
+                                                <p>day1</p>
+                                            </div>
+                                            <div class="col">
+                                                <img src="..." alt="..." class="weather1"> 
+                                                <p>day2</p>
+                                            </div>
+                                            <div class="col">
+                                                <img src="..." alt="..." class="weather1"> 
+                                                <p>day3</p>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="nav-agencies" role="tabpanel" aria-labelledby="nav-agencies-tab">
+                                    <h4 class="htitle">Agencies Emergency Contact</h4>
+                                <table id="agencies-table" class="table table-sm table-striped table-light">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col">Agency Name</th>
+                                        <th scope="col">Number</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">Web Site</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Contact1</td>
+                                            <td>123.123.1234</td>
+                                            <td>123 12ave. City, ST</td>
+                                            <td><a href="#">contact.com</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Contact2</td>
+                                            <td>123.123.1234</td>
+                                            <td>123 12ave. City, ST</td>
+                                            <td><a href="#">contact.com</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="nav-gear" role="tabpanel" aria-labelledby="nav-gear-tab">
+                                    <h4 class="htitle">Minimum Gear Recommended</h4>
+                                <table class="table table-sm table-striped table-light">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Supply</th>
+                                            <th scope="col">Weight</th>
+                                            <th scope="col">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="gear-table">
+                                        <tr>
+                                            <td>Sunscreen</td>
+                                            <td>0.1</td>
+                                            <td>Minimum SPF Recomended: 35</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Hiking boots</td>
+                                            <td>1</td>
+                                            <td>Mid-cut hiking boots for stability</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Flashlight</td>
+                                            <td>0.2</td>
+                                            <td>...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="nav-itinerary" role="tabpanel" aria-labelledby="nav-itinerary-tab" align="center">
+                                <h4 class="htitle">Itinerary</h4>
+                                
+                                <div class="jumbotron col-9">
+                                    <h5>Activity 1</h5>
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <div class="row">
+                                                <label class="col-sm-4">Expected time</label>
+                                                <div class="col-sm-8">
+                                                    <p>1 hour</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-0">
+                                                <label class="col-sm-4">Price</label>
+                                                <div class="col-sm-8">
+                                                    <p>Free</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-0">
+                                                <label class="col-4">More Info</label>
+                                                <div class="col-8">
+                                                    <p><a href="#">link</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <img src="...">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="jumbotron col-9">
+                                    <h5>Activity 2</h5>
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <div class="row">
+                                                <label class="col-sm-4">Expected time</label>
+                                                <div class="col-sm-8">
+                                                    <p>1 hour</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-0">
+                                                <label class="col-sm-4">Price</label>
+                                                <div class="col-sm-8">
+                                                    <p>Free</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-0">
+                                                <label class="col-4">More Info</label>
+                                                <div class="col-8">
+                                                    <p><a href="#">link</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <img src="...">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--end nav-tab content-->
+                    </div><!--end hike-tabs-->
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+       
+        <!-- JQ & Bootstrap -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <!--Script for tabs-->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+        <!-- css -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+       
+        <script type="text/javascript" src="js/utilities.js"></script>
+
+
+       
+
+     
+    </body>
+</html>
