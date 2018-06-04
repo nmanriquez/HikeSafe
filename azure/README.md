@@ -18,7 +18,7 @@ ng build --prod
 4. This command will create a folder named "dist"
 
 
-# II. Before doing the deployment
+# II. Before doing the deployment, inside azure_project directory
 
 1. Copy the "dist" folder into this directory 
 
@@ -31,7 +31,7 @@ Check some changes:
 
 1. Check that App.ts contains:
 
-	this.express.use('/', express.static(__dirname + 'dist'));
+	this.express.use('/', express.static(__dirname + '/dist'));
 	
 1.b. tsc App.ts (if any change)
 
