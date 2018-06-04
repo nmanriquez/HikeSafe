@@ -1,0 +1,20 @@
+
+<div class="container home mt-4 col-10" align="center">
+  <h1 class="h1">HikeSafe</h1>
+  <h3 class="h3">Choose your Destination</h3>
+  <div class="input-group col-sm-9" align="center">
+      <input type="text" class="form-control" placeholder="Hike destination name" [(ngModel)]='hname'>
+      <div class="input-group-append">
+          <input class="btn btn-outline-secondary" type="button" value="Search" [routerLink]="['/hiker-info', hname]" (click)="verifyName()">
+      </div>
+  </div>
+  <!-- 16:9 aspect ratio -->
+  <div class="" align="center">
+          <iframe width="550" height="400" frameborder="0" style="border:0" class="mt-2"
+          src="https://maps.google.com/maps?q=hikes in WA&t=&z=7&ie=UTF8&iwloc=&output=embed"
+          allowfullscreen></iframe>                     
+
+  </div>
+</div>
+
+<router-outlet></router-outlet>
