@@ -24,7 +24,9 @@ ng build --prod
 
 2. Change the mongodb conection to mLab url, in DataAccess.ts
 
-3.b. tsc DataAccess.ts
+2.b. tsc DataAccess.ts
+
+3. include /node_modules to .gitignore file. It is no necessary to deploy that folder. 
 
 
 Check some changes:
